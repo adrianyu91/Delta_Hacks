@@ -1,3 +1,3 @@
 # Delta_Hacks
-Application that output transcript of real time audio
+Application that outputs a transcript of real time audio
 
