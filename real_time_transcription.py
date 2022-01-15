@@ -1,3 +1,4 @@
+# from curses import flash
 from email.mime import base
 import websockets
 import asyncio
@@ -5,6 +6,7 @@ import base64
 import json
 from configure import auth_key
 import pyaudio 
+import time
 
 import streamlit as st
 
@@ -19,6 +21,8 @@ str_new = ""
 word_difference = 4
 character_difference = 15
 min_confidence = 0.8 
+
+TOO_FAST = False
 
 #starts recording 
 stream = p.open(
@@ -64,12 +68,14 @@ async def send_receive():
                     break
                 except Exception as e:
                     assert False, "Not a websocket 4008 error"
-                temp = await asyncio.sleep(0.01)
+                temp = await asyncio.sleep(0.1)
             return True
         
         async def receive():
             global str_old
             global str_new
+            global TOO_FAST
+            last_updated = time.time()
             while True:
                 try:
                     result_str = await _ws.recv()
@@ -79,6 +85,10 @@ async def send_receive():
                     if json.loads(result_str)['message_type'] == 'FinalTranscript':
                         st.markdown(str_new)
                     
+                    if time.time() - last_updated > 1:
+                            TOO_FAST = False
+                            last_updated = time.time()
+                   
                     counter = 0
                     if len(str_new.split()) - len(str_old.split()) >= word_difference:
                         print("Flag 1")
@@ -92,6 +102,11 @@ async def send_receive():
 
                     if counter >= 2:
                         print("You're talking too fast!")
+                    
+                        TOO_FAST = True
+
+                        last_updated = time.time()
+                            
                             
                     str_old = str_new
                 except websockets.exceptions.ConnectionClosedError as e:
@@ -103,5 +118,5 @@ async def send_receive():
                     
         send_result, receive_result = await asyncio.gather(send(), receive())
         
-while True:
-    asyncio.run(send_receive())
+# while True:
+#     asyncio.run(send_receive())

@@ -38,5 +38,22 @@ function countTimer(){
     document.getElementById("MyClockDisplay").innerHTML = minute + ":" + seconds;
 }
 
-countTimer();
+// countTimer();
 
+function changeCol(){
+fetch('/toofast')
+  .then(response => response.text())
+  .then(data =>{
+       console.log(data) 
+       if (data === "True")
+       {
+           document.body.style.backgroundColor = "red"
+       }
+       else{
+           document.body.style.backgroundColor = "green"
+       }
+    })
+  ;  
+}
+setInterval(changeCol, 200)
+alert("testing")
