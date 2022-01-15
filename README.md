@@ -1,2 +1,3 @@
 # Delta_Hacks
-Delta hackathon
+Application that outputs a transcript of real time audio
+
