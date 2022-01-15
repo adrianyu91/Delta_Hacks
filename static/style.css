@@ -1,5 +1,5 @@
 body {
-    background: black;
+    background: #447EC2;
 }
 
 .clock {
@@ -7,7 +7,7 @@ body {
     top: 25%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    color: #17D4FE;
+    color: white;
     font-size: 300px;
     font-family: Orbitron;
     letter-spacing: 7px;

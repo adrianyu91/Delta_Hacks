@@ -19,8 +19,27 @@ function countTimer(){
     document.getElementById("MyClockDisplay").innerHTML = minute_str + ":" + second_str;
 }
 
-function placeHolder(){
-    var timerVar = setInterval(countTimer, 1000)
+function start(x){
+
+    if (x==true){
+
+        document.getElementById("StartBtn").onclick = function() {
+            this.disabled = true;
+        }
+        document.getElementById("StopBtn").onclick = function() {
+            this.disabled = false;
+        }
+
+    var timerVar = setInterval(countTimer, 1000);
+    }
+    else if(x==false){
+         document.getElementById("StartBtn").onclick = function() {
+             this.disabled = false;
+         }
+        document.getElementById("StopBtn").onclick = function() {
+          this.disabled = true;
+    }
+    }
 }
 
 // countTimer();
