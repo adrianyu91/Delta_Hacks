@@ -34,8 +34,16 @@ function countTimer(){
     var hour = Math.floor(totalSeconds/3600)
     var minute = Math.floor((totalSeconds - hour * 3600) / 60);
     var seconds = totalSeconds - (hour*360 + minute * 60);
+    minute_str = minute;
+    second_str = seconds;
+    if (minute <= 9) {
+        minute_str = "0" + minute_str;
+    }
+    if (seconds <= 9) {
+        second_str = "0" + second_str;
+    }
 
-    document.getElementById("MyClockDisplay").innerHTML = minute + ":" + seconds;
+    document.getElementById("MyClockDisplay").innerHTML = minute_str + ":" + second_str;
 }
 
 countTimer();
