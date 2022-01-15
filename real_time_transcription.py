@@ -19,8 +19,8 @@ p = pyaudio.PyAudio()
 str_old = ""
 str_new = ""
 word_difference = 4
-character_difference = 15
-min_confidence = 0.8 
+character_difference = 13
+min_confidence = 0.775
 
 TOO_FAST = False
 
@@ -68,7 +68,7 @@ async def send_receive():
                     break
                 except Exception as e:
                     assert False, "Not a websocket 4008 error"
-                temp = await asyncio.sleep(0.1)
+                temp = await asyncio.sleep(0.05)
             return True
         
         async def receive():
@@ -85,9 +85,8 @@ async def send_receive():
                     if json.loads(result_str)['message_type'] == 'FinalTranscript':
                         st.markdown(str_new)
                     
-                    if time.time() - last_updated > 1:
-                            TOO_FAST = False
-                            last_updated = time.time()
+                    if time.time_ns() - last_updated > 1000000000:
+                        TOO_FAST = False
                    
                     counter = 0
                     if len(str_new.split()) - len(str_old.split()) >= word_difference:
@@ -96,16 +95,14 @@ async def send_receive():
                     if len(str_new) - len(str_old) >= character_difference:
                         print("Flag 2")
                         counter += 1
-                    if confidence < min_confidence and confidence != 0.0:
+                    if confidence < min_confidence and confidence > 0.4:
                         print("Flag 3")
                         counter += 1
 
                     if counter >= 2:
                         print("You're talking too fast!")
-                    
                         TOO_FAST = True
-
-                        last_updated = time.time()
+                        last_updated = time.time_ns()
                             
                             
                     str_old = str_new

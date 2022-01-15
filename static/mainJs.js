@@ -52,7 +52,6 @@ function changeCol(){
 fetch('/toofast')
   .then(response => response.text())
   .then(data =>{
-       console.log(data) 
        if (data === "True")
        {
            document.body.style.backgroundColor = "red"
@@ -63,5 +62,4 @@ fetch('/toofast')
     })
   ;  
 }
-setInterval(changeCol, 200)
-alert("testing")
+setInterval(changeCol, 50)
