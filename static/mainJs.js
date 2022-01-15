@@ -25,19 +25,18 @@
 
 // setTime()
 
-// var timerVar = setInterval(countTimer, 1000);
-// var totalSeconds = 0;
+var timerVar = setInterval(countTimer, 1000);
+var totalSeconds = 0;
 
-// function countTimer(){
-//     ++totalSeconds;
+function countTimer(){
+    ++totalSeconds;
 
-//     var hour = Math.floor(totalSeconds/3600)
-//     var minute = Math.floor((totalSeconds - hour * 3600) / 60);
-//     var seconds = totalSeconds - (hour*360 + minute * 60);
+    var hour = Math.floor(totalSeconds/3600)
+    var minute = Math.floor((totalSeconds - hour * 3600) / 60);
+    var seconds = totalSeconds - (hour*360 + minute * 60);
 
-//     document.getElementById("MyClockDisplay").innerHTML = minute + ":" + seconds;
-// }
+    document.getElementById("MyClockDisplay").innerHTML = minute + ":" + seconds;
+}
 
-// countTimer();
+countTimer();
 
-alert("hello")
