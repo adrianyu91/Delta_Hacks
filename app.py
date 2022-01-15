@@ -16,6 +16,6 @@ def tooFast():
     return str(real_time_transcription.TOO_FAST) 
 
 if __name__=="__main__":
-    threading.Thread(target=lambda: asyncio.run(real_time_transcription.send_receive())).start()
+    # threading.Thread(target=lambda: asyncio.run(real_time_transcription.send_receive())).start()
     app.run(debug=True)
 

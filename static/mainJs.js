@@ -1,31 +1,4 @@
-// var minutesLabel = document.getElementById("minutes");
-// var secondsLabel = document.getElementById("seconds");
-// var totalSeconds = 0;
-// setInterval(setTime, 1000);
-
-// function setTime()
-// {
-//     ++totalSeconds;
-//     secondsLabel.innerHTML = pad(totalSeconds%60);
-//     minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
-// }
-
-// function pad(val)
-// {
-//     var valString = val + "";
-//     if(valString.length < 2)
-//     {
-//         return "0" + valString;
-//     }
-//     else
-//     {
-//         return valString;
-//     }
-// }
-
-// setTime()
-
-var timerVar = setInterval(countTimer, 1000);
+// var timerVar = setInterval(countTimer, 10000);
 var totalSeconds = 0;
 
 function countTimer(){
@@ -46,20 +19,24 @@ function countTimer(){
     document.getElementById("MyClockDisplay").innerHTML = minute_str + ":" + second_str;
 }
 
+function placeHolder(){
+    var timerVar = setInterval(countTimer, 1000)
+}
+
 // countTimer();
 
-function changeCol(){
-fetch('/toofast')
-  .then(response => response.text())
-  .then(data =>{
-       if (data === "True")
-       {
-           document.body.style.backgroundColor = "red"
-       }
-       else{
-           document.body.style.backgroundColor = "green"
-       }
-    })
-  ;  
-}
-setInterval(changeCol, 50)
+// function changeCol(){
+// fetch('/toofast')
+//   .then(response => response.text())
+//   .then(data =>{
+//        if (data === "True")
+//        {
+//            document.body.style.backgroundColor = "red"
+//        }
+//        else{
+//            document.body.style.backgroundColor = "green"
+//        }
+//     })
+//   ;  
+// }
+// setInterval(changeCol, 50)

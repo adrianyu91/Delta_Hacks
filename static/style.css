@@ -8,10 +8,28 @@ body {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     color: #17D4FE;
-    font-size: 200px;
+    font-size: 300px;
     font-family: Orbitron;
     letter-spacing: 7px;
-   
+}
 
+.centeringBtn{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+}
 
+.centeringBtn2{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+}
+
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 30; 
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
 }
