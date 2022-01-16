@@ -76,18 +76,20 @@ function start(x) {
 
 // countTimer();
 
-// function changeCol(){
-// fetch('/toofast')
-//   .then(response => response.text())
-//   .then(data =>{
-//        if (data === "True")
-//        {
-//            document.body.style.backgroundColor = "red"
-//        }
-//        else{
-//            document.body.style.backgroundColor = "green"
-//        }
-//     })
-//   ;  
-// }
-// setInterval(changeCol, 50)
+function changeCol(){
+    if (check) {
+        fetch('/toofast')
+        .then(response => response.text())
+        .then(data =>{
+            if (data === "True")
+            {
+                document.body.style.backgroundColor = "red"
+            }
+            else{
+                document.body.style.backgroundColor = "green"
+            }
+            })
+        ;  
+    }
+}
+setInterval(changeCol, 50)
