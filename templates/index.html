@@ -28,8 +28,18 @@
   <!-- <div id="timer" style="font-size: 70px; color: black;"></div>
   <div id="stop_timer" onclick="clearInterval(timerVar)">Stop time</div> -->
   <div id="MyClockDisplay" class="clock" >00:00</div>
+  <div>
   <button type="button" class="btn btn-success btn-lg centeringBtn btn-xlarge" id="StartBtn" onclick="start(true)">Start The App!</button>
   <button type="button" class="btn btn-danger btn-lg centeringBtn2 btn-xlarge" id="StopBtn" onclick="start(false)">Stop The App!</button>
+  </div>
+
+  <div>
+    <button type="button" class="btn btn-dark btn-lg centeringBtn3 btn-xlarge" id="Instructions" onclick="revealBox()">Instructions</button>
+  </div>
+
+  <div id="instrucBox">
+    <p id="instruc">Welcome to the Transcription Assistant. To begin, start the timer and begin talking. If you start talking too quickly, the screen will turn red. When you are done talking, press the stop button. You will then be rerouted to a transcript of your speech where you can see where to slow down.</p>
+  </div>
   
   </body>
 </html>

@@ -74,6 +74,18 @@ function start(x) {
     }
 }
 
+function revealBox(){
+    if (document.getElementById("instrucBox").style.display == "block"){
+        document.getElementById("instrucBox").style.display = "none";
+    }
+    else{
+        document.getElementById("instrucBox").style.display = "block";
+
+    }
+
+
+}
+
 // countTimer();
 
 function changeCol(){
