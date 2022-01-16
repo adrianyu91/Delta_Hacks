@@ -25,6 +25,12 @@ body {
     left: 55%;
 }
 
+.centeringBtn3{
+    position: absolute;
+    top: 65%;
+    left: 45%;
+}
+
 .btn-xlarge {
     padding: 18px 28px;
     font-size: 30; 
@@ -32,4 +38,20 @@ body {
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
+}
+
+#instrucBox {
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 75%;
+    background-color: rgba(245, 245, 245, 0.719);
+    text-align: center;
+    text-align: center;
+    padding: 2px;
+    display: none;
+}
+
+#instruc{
+    padding-top: 5px;
 }
