@@ -102,6 +102,8 @@ function changeCol(){
             }
             })
         ;  
+    } else {
+        document.body.style.backgroundColor = "#447EC2";
     }
 }
 setInterval(changeCol, 50)
